@@ -1,15 +1,40 @@
 //TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+        Scanner scan = new Scanner(System.in);
+
+        System.out.println("Pick a conversion measurement: ");
+        System.out.println("1. Length");
+        System.out.println("2. Weight");
+        System.out.println("3. Temperature");
+
+        int choice = scan.nextInt();
+
+        switch(choice){
+            case 1:
+                Length L = new Length();
+                System.out.println("Centimeters: " + L.ConvertMToCM());
+                System.out.println("Meters: " + L.ConvertCMToM());;
+                break;
+            case 2:
+                Weight W = new Weight();
+                System.out.println("Kilograms: " + W.ConvertPoundToKg());
+                System.out.println("Pounds: " + W.ConvertKgToPound());
+                break;
+            case 3:
+                Temperature T = new Temperature();
+                System.out.println("Kelvin: " + T.ConvertFToK());
+                System.out.print("Fahrenheit: " + T.ConvertKToF());
+                break;
+            default:
+                System.out.println("Invalid choice.");
+
+        }
+
         }
     }
-}
